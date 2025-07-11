@@ -64,6 +64,15 @@ for (let i = 0; i < 16; i++) {
             square.style.opacity = parseFloat(square.style.opacity) + .1;
             square.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
         });
+
+        square.addEventListener("touchmove", () => {
+            redRandom = Math.floor(Math.random() * 255);
+            greenRandom = Math.floor(Math.random() * 255);
+            blueRandom = Math.floor(Math.random() * 255);
+
+            square.style.opacity = parseFloat(square.style.opacity) + .1;
+            square.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
+        });
     }
 
     grid.appendChild(row);
