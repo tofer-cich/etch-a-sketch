@@ -4,12 +4,6 @@ let redRandom;
 let greenRandom;
 let blueRandom;
 
-// add button that says new grid
-// when clicked, prompt user for size
-// store user in global variable called size
-// limit range between 1 and 100 inclusive
-// use the for loops to make a new grid
-
 const gridButton = document.createElement("button");
 gridButton.classList.add("btn");
 gridButton.textContent = "New Grid";
