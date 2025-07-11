@@ -56,27 +56,34 @@ for (let i = 0; i < 16; i++) {
         square.style.opacity = 0;
         row.appendChild(square);
 
-        square.addEventListener("pointermove", () => {
-            redRandom = Math.floor(Math.random() * 255);
-            greenRandom = Math.floor(Math.random() * 255);
-            blueRandom = Math.floor(Math.random() * 255);
-
-            square.style.opacity = parseFloat(square.style.opacity) + .1;
-            square.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
-        });
-
-        square.addEventListener("touchmove", (e) => {
-            e.preventDefault();
-            redRandom = Math.floor(Math.random() * 255);
-            greenRandom = Math.floor(Math.random() * 255);
-            blueRandom = Math.floor(Math.random() * 255);
-
-            square.style.opacity = parseFloat(square.style.opacity) + .1;
-            square.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
-        });
-
     }
 
     grid.appendChild(row);
 }
+
+grid.addEventListener('mouseenter', (e) => {
+    if (e.target.classList.contains('square')) {
+        redRandom = Math.floor(Math.random() * 255);
+        greenRandom = Math.floor(Math.random() * 255);
+        blueRandom = Math.floor(Math.random() * 255);
+
+        e.target.style.opacity = parseFloat(e.target.style.opacity) + .1;
+        e.target.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
+    }
+}, { capture: true });
+
+grid.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const touchedSquare = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (touchedSquare?.classList.contains('square')) {
+        redRandom = Math.floor(Math.random() * 255);
+        greenRandom = Math.floor(Math.random() * 255);
+        blueRandom = Math.floor(Math.random() * 255);
+
+        touchedSquare.style.opacity = parseFloat(touchedSquare.style.opacity) + .1;
+        touchedSquare.style.background = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
+    }
+});
+
 
