@@ -2,8 +2,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 95%; */
-    /* min-height: 95vh; */
     height: 95vh;
     background-color: rgb(26, 25, 25);
 }
@@ -11,10 +9,8 @@ body {
 #container {
     display: flex;
     flex-direction: column;
-    /* border: 3px solid rgb(26, 25, 25); */
     justify-content: center;
     background-color: white;
-    /* overflow-y: hidden; */
     aspect-ratio: 1/1; 
 }
 
